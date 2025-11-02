@@ -348,15 +348,13 @@ if (form){
 
     var isCT = portalSel && portalSel.value === "computrabajo";
     if (isCT) {
-      var kw  = keywordInp  ? (keywordInp.value  || "").trim() : "";
-      var loc = locationInp ? (locationInp.value || "").trim() : "";
-      if (!kw || !loc) {
-        alert("En Computrabajo, 'Puesto' y 'Ubicación' son obligatorios.");
-        if (!kw && keywordInp)        keywordInp.focus();
-        else if (!loc && locationInp) locationInp.focus();
-        return; // corta el submit
-      }
+    var kw = keywordInp ? (keywordInp.value || "").trim() : "";
+    if (!kw) {
+      alert("En Computrabajo, 'Puesto' es obligatorio.");
+      if (keywordInp) keywordInp.focus();
+      return;
     }
+  }
 
     if (!form.reportValidity()) return;
 

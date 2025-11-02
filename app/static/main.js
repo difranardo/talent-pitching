@@ -61,11 +61,12 @@ function showToast(message) {
 
 function updateRequiredByPortal() {
   var isCT = portalSel && portalSel.value === "computrabajo";
-  if (keywordInp)  keywordInp.required  = isCT;
-  if (locationInp) locationInp.required = isCT;
+  if (keywordInp)  keywordInp.required  = isCT;  // sigue siendo obligatorio
+  if (locationInp) locationInp.required = false; // ya no es obligatorio
   if (astK) astK.toggleAttribute("hidden", !isCT);
-  if (astL) astL.toggleAttribute("hidden", !isCT);
+  if (astL) astL.hidden = true; // oculta siempre el asterisco de ubicación
 }
+
 
 function setUIRunning(running){
   // mostrar/ocultar “cargando” (overlay no bloquea clics)
